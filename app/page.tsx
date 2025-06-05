@@ -47,11 +47,44 @@ export default function Home() {
     },
   ]
 
+  const services = [
+    {
+      id: 1,
+      title: 'BUILD',
+      line: 'End-to-End Application Development',
+      description: 'From concept to launch, we build high-quality full-stack applications tailored to your startup’s needs.'
+    }, {
+      id: 2,
+      title: 'GROW',
+      line: 'Marketing & Growth Strategy',
+      description: 'Leverage branding, SEO, and user acquisition strategies to expand your reach and maximize engagement.'
+    }, {
+      id: 3,
+      title: 'CONNECT',
+      line: 'Funding & Investor Network',
+      description: 'Gain access to venture capitalists and investors to secure the financial boost your startup needs.'
+    }, {
+      id: 4,
+      title: 'PRODUCT DESIGN',
+      line: 'User Experience & Interface Design',
+      description: 'Create intuitive, engaging user experiences that enhance usability and increase conversion rates.'
+    }, {
+      id: 5,
+      title: 'TECH INNOVATION',
+      line: 'Scalable Software Architecture',
+      description: 'Develop robust, scalable systems to support your startup’s growth and evolving business needs.'
+    }, {
+      id: 6,
+      title: 'SMART SOLUTION',
+      line: 'AI & Machine Learning Integration',
+      description: 'Enhance decision-making and automate processes with AI-powered solutions tailored to your business.'
+    },
 
-  
+  ]
+
   return (
     <>
-      <nav className="w-full fixed top-0 z-[1000] text-white bg-black/50 flex justify-between items-center transition-all duration-300 ease-in-out md:h-[130px] h-[80px] px-5 lg:px-10 backdrop-blur-lg md:backdrop-blur-none">
+      <nav className="w-full fixed top-0 z-[1000] text-white bg-black/50 flex justify-between items-center transition-all duration-300 ease-in-out md:h-[130px] h-[80px] px-5 lg:px-10 backdrop-blur-lg md:backdrop-blur-md">
         <div className="w-full max-w-[1440px] mx-auto flex justify-between items-center">
           <a href="#" className="flex items-center gap-1 cursor-pointer fade-in-blur-left-0">
             <Logo />
@@ -244,6 +277,44 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section id="services" className="overflow-hidden h-auto relative bg-[#161619]">
+        <div
+          className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_1px_1px,_white_1px,_transparent_0)] bg-[length:0.8125rem_0.8125rem]">
+        </div>
+
+        <div className="relative flex justify-between gap-[11rem] z-10 max-w-[96rem] mx-auto md:px-[6.25rem] px-[1.5rem] md:py-[9.375rem]">
+          <div className="flex flex-col gap-8">
+            <p className="font-bold">KEIZER WORKS</p>
+            <h2 className="md:text-[3.125rem] w-fit grotesk text-nowrap text-[2rem] font-bold leading-tight">
+              Empowering startups
+              <br className="hidden md:inline-block" />
+              to build, grow,
+              <br className="hidden md:inline-block" />
+              and connect with
+              <br className="hidden md:inline-block" />
+              the right resources.
+            </h2>
+            <button className="grotesk translate-x-1 group relative w-fit bg-white text-black font-semibold px-4 text-lg py-2">Contact Now</button>
+          </div>
+
+          <div className="flex gap-10 flex-wrap">
+            {
+              services.map(item => (
+                <div key={item.id} className="w-[18rem] space-y-6">
+                  <p className="font-medium text-sm">{`${item.id} ${item.title}`}</p>
+                  <div className="h-px bg-white/30" />
+                  <h3 className="font-bold text-2xl">{item.line}</h3>
+                  <p>{item.description}</p>
+                </div>
+              ))
+            }
+
+          </div>
+        </div>
+      </section>
+
+
     </>
   );
 }
