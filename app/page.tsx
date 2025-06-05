@@ -8,9 +8,9 @@ import { ArrowRight } from 'lucide-react'
 
 export default function Home() {
   const [isHovered, setIsHovered] = useState(false);
-  const [openIndexes, setOpenIndexes] = useState({});
+  const [openIndexes, setOpenIndexes] = useState<{ [key: number]: boolean }>({});
 
-  const toggleItem = (index) => {
+  const toggleItem = (index: number) => {
     setOpenIndexes((prev) => ({
       ...prev,
       [index]: !prev[index],
