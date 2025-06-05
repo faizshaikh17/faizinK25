@@ -5,17 +5,18 @@ import "./globals.css";
 
 const dmMono = DM_Mono({
   subsets: ['latin'],
-  weight: '300', // Light
+  weight: '300', 
   variable: '--font-dm-mono',
   display: 'swap',
 })
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
-  weight: '300', // Light
+  weight: ['300', '400', '500', '600', '700'], // Light to Bold
   variable: '--font-space-grotesk',
   display: 'swap',
-})
+});
+
 
 
 export const metadata: Metadata = {
