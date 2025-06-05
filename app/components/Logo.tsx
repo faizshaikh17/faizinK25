@@ -3,7 +3,7 @@ export default function Logo() {
     return (
         <Image
             src="/keizerlogo.svg"
-            alt="Faizz profile picture"
+            alt="Keizer"
             width={80}
             height={80}
             priority
