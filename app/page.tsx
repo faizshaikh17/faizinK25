@@ -16,10 +16,42 @@ export default function Home() {
     { href: "#aboutus", label: "About Us", number: "04" },
   ];
 
+  const projects = [
+    {
+      href: 'https://invoicen.keizerworks.com/',
+      title: 'Invoicen',
+      category: 'SAAS',
+      src: '/project-1.webp',
+      colSpan: 'md:col-span-2 md:row-span-2',
+    },
+    {
+      href: 'https://github.com/keizerworks/keizer-auth',
+      title: 'Keizer Auth',
+      category: 'SAAS',
+      src: '/project-2.webp',
+      colSpan: 'md:col-span-1 md:row-span-2',
+    },
+    {
+      href: 'https://youtu.be/idODK_SqBSg',
+      title: 'Uni DAO',
+      category: 'Metaverse, DAO',
+      src: '/project-3.webp',
+      colSpan: 'md:col-span-1 md:row-span-1',
+    },
+    {
+      href: 'http://knight-fall.vercel.app/',
+      title: 'Knight Fall',
+      category: 'Gaming, Blockchain',
+      src: '/project-4.webp',
+      colSpan: 'md:col-span-2 md:row-span-1',
+    },
+  ]
+
+
   
   return (
     <>
-      <nav className="w-full fixed top-0 z-[1000] text-white bg-black/50 flex justify-between items-center transition-all duration-300 ease-in-out md:h-[130px] h-[80px] px-5 lg:px-10 backdrop-blur-md md:backdrop-blur-none">
+      <nav className="w-full fixed top-0 z-[1000] text-white bg-black/50 flex justify-between items-center transition-all duration-300 ease-in-out md:h-[130px] h-[80px] px-5 lg:px-10 backdrop-blur-lg md:backdrop-blur-none">
         <div className="w-full max-w-[1440px] mx-auto flex justify-between items-center">
           <a href="#" className="flex items-center gap-1 cursor-pointer fade-in-blur-left-0">
             <Logo />
@@ -161,8 +193,57 @@ export default function Home() {
       </section>
 
 
-
-
+      <section className="bg-white text-black">
+        <div className="md:p-[6.25rem] px-[1.5rem] py-[3.75rem] mx-auto max-w-[96rem]">
+          <div className="flex items-center justify-start gap-[13rem]">
+            <div className="gotham">
+              <p>OUR CLIENTS</p>
+              <h2 className="md:text-[3.375rem] w-[30rem] tracking-tigh text-[2rem] font-bold leading-[100%]">
+                We’re going to
+                <br className="hidden md:inline-block" />
+                be partners
+                <br className="hidden md:inline-block" />
+                for the long run.
+              </h2>
+            </div>
+            <p className=" grotesk font-normal w-[30rem] text-xl ">
+              Through innovative design and technology, we
+              <br className="hidden md:inline-block" />
+              <span className="font-semibold">deliver exceptional
+                solutions</span> tailored to <span className="font-bold">
+                <br className="hidden md:inline-block" />
+                create impactful experiences</span> that last a lifetime.
+            </p>
+          </div>
+          <div className="grid pt-[60px] grid-cols-1 md:grid-cols-3 gap-[30px] py-8">
+            {projects.map(({ href, title, category, src, colSpan }) => (
+              <Link
+                key={title}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group relative h-[220px] overflow-hidden rounded-[5px] sm:h-[280px] md:h-[422px] ${colSpan}`}
+              >
+                <Image
+                  alt={title}
+                  loading="lazy"
+                  width={400}
+                  height={400}
+                  decoding="async"
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  style={{ color: 'transparent' }}
+                  src={src}
+                />
+                <div className="absolute bottom-0 left-0 right-0 h-[50%] w-full bg-gradient-to-t from-black to-transparent opacity-60" />
+                <div className="absolute inset-0 z-20 flex flex-col justify-end p-[20px] md:p-[40px]">
+                  <h3 className="text-xl font-medium text-zinc-100 md:text-2xl">{title}</h3>
+                  <p className="mt-[5px] text-sm text-zinc-300">{category}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }
