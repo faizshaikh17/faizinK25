@@ -6,12 +6,11 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from 'lucide-react'
 
-
 export default function Home() {
-  const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [isHovered, setIsHovered] = useState(false);
   const [openIndexes, setOpenIndexes] = useState({});
 
-  const toggleItem = (index: string) => {
+  const toggleItem = (index) => {
     setOpenIndexes((prev) => ({
       ...prev,
       [index]: !prev[index],
@@ -62,33 +61,37 @@ export default function Home() {
       title: 'BUILD',
       line: 'End-to-End Application Development',
       description: 'From concept to launch, we build high-quality full-stack applications tailored to your startup’s needs.'
-    }, {
+    },
+    {
       id: 2,
       title: 'GROW',
       line: 'Marketing & Growth Strategy',
       description: 'Leverage branding, SEO, and user acquisition strategies to expand your reach and maximize engagement.'
-    }, {
+    },
+    {
       id: 3,
       title: 'CONNECT',
       line: 'Funding & Investor Network',
       description: 'Gain access to venture capitalists and investors to secure the financial boost your startup needs.'
-    }, {
+    },
+    {
       id: 4,
       title: 'PRODUCT DESIGN',
       line: 'User Experience & Interface Design',
       description: 'Create intuitive, engaging user experiences that enhance usability and increase conversion rates.'
-    }, {
+    },
+    {
       id: 5,
       title: 'TECH INNOVATION',
       line: 'Scalable Software Architecture',
       description: 'Develop robust, scalable systems to support your startup’s growth and evolving business needs.'
-    }, {
+    },
+    {
       id: 6,
       title: 'SMART SOLUTION',
       line: 'AI & Machine Learning Integration',
       description: 'Enhance decision-making and automate processes with AI-powered solutions tailored to your business.'
     },
-
   ]
 
   const faqs = [
@@ -112,7 +115,6 @@ export default function Home() {
       title: 'What if I’m not satisfied with the product?',
       description: 'Your satisfaction is our top priority. Throughout the development process, we incorporate your feedback and provide revisions to ensure the product meets your expectations. In the unlikely event that you’re not satisfied with the final delivery, we are open to discussing adjustments or providing partial refunds in accordance with our policy. Our goal is to deliver a product that truly adds value to your business.'
     },
-
   ]
 
   return (
@@ -208,7 +210,6 @@ export default function Home() {
             </a>
           </button>
         </div>
-
 
         <div className="relative mt-[50px] flex-shrink-0 w-[380px] md:w-[412px] aspect-square mx-auto md:ml-0">
           <Image
@@ -436,7 +437,6 @@ export default function Home() {
         </div>
       </section>
 
-
       <section
         className="w-full bg-[#2D2DC3] text-white flex flex-col md:flex-row items-start pt-[6.25rem] pb-[6.25rem] md:p-[6rem] px-[1rem] mx-auto md:max-w-[105rem] overflow-hidden"
       >
@@ -473,7 +473,6 @@ export default function Home() {
             </div>
           </form>
 
-
           <button
             type="button"
             className="group relative mt-[2rem] w-fit text-white grotesk font-medium px-[1rem] py-[0.5rem] md:text-lg translate-x-1"
@@ -485,15 +484,12 @@ export default function Home() {
               className="relative z-20 inline-block transition-all duration-300 group-active:-translate-x-1 group-active:translate-y-1"
             >
               <p className="flex gap-1 text-gray-400 justify-between items-center">Send <ArrowRight size={20} /> </p>
-
             </a>
           </button>
         </div>
       </section>
 
-
       <section className="w-full bg-black text-white flex flex-col md:flex-row items-start pt-[6.25rem] pb-[6.25rem] md:p-[6rem] px-[1rem] mx-auto md:max-w-[105rem] overflow-hidden">
-
         <div className="flex flex-col w-full">
           <p className="">COLLABORATION</p>
           <h1 className="gotham text-5xl">Frequently asked questions</h1>
@@ -537,8 +533,8 @@ export default function Home() {
             </div>
           </div>
           <div className="h-[0.01rem] bg-white/30 w-full"></div>
-        </div >
-      </section >
+        </div>
+      </section>
 
       <footer id="footer" className="text-white">
         <div className="max-w-[96rem] mx-auto md:px-[6.25rem] px-[1.5rem] pb-[4rem]">
@@ -559,7 +555,6 @@ export default function Home() {
             </div>
 
             <div className="space-y-8 lg:space-y-0 lg:flex lg:space-x-[4rem]">
-
               <div>
                 <h3 className="text-[1.25rem] mb-3 font-semibold">Navigate</h3>
                 <ul className="md:space-y-[0.63rem] space-y-[0.75rem]">
@@ -597,7 +592,6 @@ export default function Home() {
                   </li>
                 </ul>
               </div>
-
             </div>
           </div>
         </div>
@@ -613,7 +607,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-
     </>
   );
 }
