@@ -9,6 +9,15 @@ import { ArrowRight } from 'lucide-react'
 
 export default function Home() {
   const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [openIndexes, setOpenIndexes] = useState({});
+
+  const toggleItem = (index: string) => {
+    setOpenIndexes((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+  };
+
   const navLinks = [
     { href: "#ourprojects", label: "Our Projects", number: "01" },
     { href: "#services", label: "Services", number: "02" },
@@ -82,9 +91,33 @@ export default function Home() {
 
   ]
 
+  const faqs = [
+    {
+      title: 'What does an MVP include?',
+      description: 'Our MVPs are designed to help you launch quickly and effectively. They include full-stack development services, starting from a custom design and front-end prototype to a fully functional, customer-ready product. We focus on building scalable, high-quality solutions tailored to your business goals. This ensures your product is ready to test in the market with core features while leaving room for future enhancements.'
+    },
+    {
+      title: 'What are the intellectual property rights?',
+      description: 'At Keizer, we believe in empowering our clients. All intellectual property created during the project, including designs, code, and documentation, will belong to you upon completion of the project and final payment. We provide all the necessary files and access to ensure you have full control over your product without any restrictions or hidden terms.'
+    },
+    {
+      title: 'How do we communicate during the project?',
+      description: 'We ensure seamless communication throughout the project to keep you informed and involved. Our process includes regular updates, milestone reviews, and dedicated points of contact for any queries or feedback. We typically use tools like email, video calls, and project management platforms to ensure transparency and timely updates. Your input is integral to achieving the best results, and we make collaboration a priority.'
+    },
+    {
+      title: 'What if I need more features than the MVP includes?',
+      description: 'We understand that businesses evolve and so do their needs. If you require more features beyond the MVP scope, we are happy to accommodate them. We work closely with you to plan and prioritize additional features, ensuring they align with your business objectives. This flexibility allows us to scale your product as your startup grows, without compromising on quality or timelines.'
+    },
+    {
+      title: 'What if I’m not satisfied with the product?',
+      description: 'Your satisfaction is our top priority. Throughout the development process, we incorporate your feedback and provide revisions to ensure the product meets your expectations. In the unlikely event that you’re not satisfied with the final delivery, we are open to discussing adjustments or providing partial refunds in accordance with our policy. Our goal is to deliver a product that truly adds value to your business.'
+    },
+
+  ]
+
   return (
     <>
-      <nav className="w-full fixed top-0 z-[50] text-white bg-black/50 flex justify-between items-center transition-all duration-300 ease-in-out md:h-[130px] h-[80px] px-5 lg:px-10 backdrop-blur-lg md:backdrop-blur-md">
+      <nav className="w-full fixed top-0 z-[50] text-white bg-black/50 flex justify-between items-center transition-all duration-300 ease-in-out md:h-[100px] h-[80px] px-5 lg:px-10 backdrop-blur-lg md:backdrop-blur-md">
         <div className="w-full max-w-[1440px] mx-auto flex justify-between items-center">
           <a href="#" className="flex items-center gap-1 cursor-pointer fade-in-blur-left-0">
             <Logo />
@@ -225,7 +258,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white text-black">
+      <section id="ourprojects" className="bg-white text-black">
         <div className="md:p-[6.25rem] px-[1.5rem] py-[3.75rem] mx-auto max-w-[96rem]">
           <div className="flex items-center justify-start gap-[13rem]">
             <div className="gotham">
@@ -458,6 +491,128 @@ export default function Home() {
         </div>
       </section>
 
+
+      <section className="w-full bg-black text-white flex flex-col md:flex-row items-start pt-[6.25rem] pb-[6.25rem] md:p-[6rem] px-[1rem] mx-auto md:max-w-[105rem] overflow-hidden">
+
+        <div className="flex flex-col w-full">
+          <p className="">COLLABORATION</p>
+          <h1 className="gotham text-5xl">Frequently asked questions</h1>
+
+          <div className="flex flex-col w-full mt-8 gap-4">
+            {faqs.map((item, index) => (
+              <div
+                key={item.title}
+                className="px-4 py-6 dropdown rounded-xl bg-[#151616] flex flex-col justify-center items-start"
+              >
+                <div className="flex w-full mx-2 text-sm text-gray-300 justify-between items-center">
+                  <p>{item.title}</p>
+                  <p
+                    className="mx-4 cursor-pointer"
+                    onClick={() => toggleItem(index)}
+                  >
+                    {openIndexes[index] ? "Close" : "Open"}
+                  </p>
+                </div>
+                {openIndexes[index] && (
+                  <p className="text-sm  dropdown-menu mx-2 mt-4">
+                    {item.description}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-[12rem] mb-[6rem] flex justify-between items-center w-full">
+            <p className="text-[24px] leading-[100%] font-bold">Join our newsletter<br className="lg:block md:hidden block" />to stay up to date with us</p>
+            <div className="h-12 text-base w-[28rem] text-gray-300 px-4 bg-[#161515] flex items-center justify-between rounded-md">
+              <input
+                type="email"
+                defaultValue=""
+                placeholder="Enter your email"
+                className="bg-transparent outline-none placeholder-gray-500 flex-1"
+              />
+              <button className="ml-4 text-sm text-gray-400 hover:text-gray-200 transition-colors">
+                Subscribe
+              </button>
+            </div>
+          </div>
+          <div className="h-[0.01rem] bg-white/30 w-full"></div>
+        </div >
+      </section >
+
+      <footer id="footer" className="text-white">
+        <div className="max-w-[96rem] mx-auto md:px-[6.25rem] px-[1.5rem] pb-[4rem]">
+          <div className="flex flex-col lg:flex-row lg:justify-between space-y-8 lg:space-y-0">
+            <div>
+              <Image
+                alt="keizer-brand-logo"
+                loading="lazy"
+                width={175}
+                height={80}
+                decoding="async"
+                className="md:translate-x-0 translate-x-[-0.94rem]"
+                src="/keizerlogo.svg"
+              />
+              <p className="max-w-[21.88rem] text-neutral-400 mt-4">
+                Empowering Visionaries, Scaling Ambitions.
+              </p>
+            </div>
+
+            <div className="space-y-8 lg:space-y-0 lg:flex lg:space-x-[4rem]">
+
+              <div>
+                <h3 className="text-[1.25rem] mb-3 font-semibold">Navigate</h3>
+                <ul className="md:space-y-[0.63rem] space-y-[0.75rem]">
+                  <li><a className="hover:text-neutral-400 active:text-neutral-600 transition-colors" href="#">Keizer</a></li>
+                  <li><a className="hover:text-neutral-400 active:text-neutral-600 transition-colors" href="#ourprojects">Project</a></li>
+                  <li><a className="hover:text-neutral-400 active:text-neutral-600 transition-colors" href="#services">Strategy</a></li>
+                  <li><a className="hover:text-neutral-400 active:text-neutral-600 transition-colors" href="#aboutus">About Us</a></li>
+                  <li><a className="hover:text-neutral-400 active:text-neutral-600 transition-colors" href="#news">News</a></li>
+                  <li><a className="hover:text-neutral-400 active:text-neutral-600 transition-colors" href="#contact">Contact</a></li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-[1.25rem] mb-3 font-semibold">Socials</h3>
+                <ul className="space-y-[0.63rem]">
+                  <li>
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-neutral-400 active:text-neutral-600 transition-colors"
+                      href="https://github.com/keizerworks"
+                    >
+                      GitHub
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-neutral-400 active:text-neutral-600 transition-colors"
+                      href="https://x.com/keizerHq"
+                    >
+                      Twitter
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div className="flex items-center justify-center text-black bg-white text-center">
+          <div className="flex flex-wrap items-center justify-center sm:justify-between gap-4 w-full max-w-[96rem] mx-auto md:px-[6.25rem] px-[1.5rem] py-2">
+            <span className="font-medium">© 2025 keizerworks. All rights reserved.</span>
+            <ul className="flex gap-6 text-sm font-medium">
+              <li><a href="#">Terms Of Service</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Cookies</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
 
     </>
   );
