@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import { DM_Mono, Space_Grotesk } from "next/font/google";
 import { gothamBold } from './fonts'
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next"
 
 const dmMono = DM_Mono({
   subsets: ['latin'],
-  weight: '300', 
+  weight: '300',
   variable: '--font-dm-mono',
   display: 'swap',
 })
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body
         className={`${dmMono.variable} ${spaceGrotesk.variable} ${gothamBold.variable} antialiased`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
