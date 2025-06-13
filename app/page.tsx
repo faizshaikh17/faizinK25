@@ -356,7 +356,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row flex-wrap gap-6 sm:gap-x-10 sm:gap-y-[40px] md:gap-x-[48px] mt-6 md:mt-0">
             {
               services.map(item => (
-                <div key={item.id} className="w-full sm:w-[280px] md:w-[288px] space-y-2">
+                <div key={item.id} className="w-full text-white/80 sm:w-[280px] md:w-[288px] space-y-2">
                   <p className="font-medium text-xs sm:text-sm">{`${item.id}. ${item.title}`}</p>
                   <div className="h-[1px] bg-white/30" />
                   <h3 className="font-bold text-lg sm:text-xl md:text-2xl">{item.line}</h3>
@@ -406,7 +406,7 @@ export default function Home() {
           <header className="relative w-full xl:w-2/3 text-center xl:text-left">
             <span className="text-sm sm:text-[15px] uppercase">About us</span>
             <h2 className="relative z-50 font-bold capitalize text-2xl sm:text-4xl md:text-[70px] leading-tight sm:leading-[80px] pt-2 sm:pt-[10px]">
-              <span className="relative gotham z-10">
+              <span className="relative text-white gotham z-10">
                 We save
                 businesses
                 from ineffective
